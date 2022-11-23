@@ -8,8 +8,8 @@ function App() {
   // const data = useContext(AppContext);
   return (
     <>
-     <Movies />
      <Search />
+     <Movies />
     </>
   );
 }
