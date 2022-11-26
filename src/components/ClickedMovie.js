@@ -50,23 +50,22 @@ const ClickedMovie = () => {
     }
 
     return (
-      <div className="container">
-        <div className="card mb-3">
-          <div className="row g-0">
+      <div className="container my-5" style={{maxWidth: "540px"}}>
+        <div className="card ">
+          <div className="row g-0 d-flex align-items-center">
             <div className="col-md-4">
-              <img src={movie.Poster} className="img-fluid rounded-start"  alt={movie.imdbID}/>
+              <img src={movie.Poster} className="img-fluid rounded-start" alt={movie.imdbID} />
             </div>
             <div className="col-md-8">
               <div className="card-body">
                 <h5 className="card-title">{movie.Title}</h5>
-                <p className="card-text">{movie.Released}</p>
+                <p className="card-text">{movie.Plot}</p>
+                <p className="card-text"><small className="text-muted">{movie.Actors}</small></p>
+                <NavLink to="/" className="btn btn-primary">Back</NavLink>
               </div>
-            </div>
           </div>
-          <NavLink to="/" className="btn btn-primary">
-            Back
-          </NavLink>
         </div>
+      </div>
       </div>
     );
   }

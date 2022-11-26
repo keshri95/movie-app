@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "http://www.omdbapi.com/?i=tt3896198&apikey=51814f21",
+            "request": "launch",
+            "url": "http://www.omdbapi.com/?i=tt3896198&apikey=51814f21"
+        }
+    ]
+}
