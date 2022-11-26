@@ -2,12 +2,18 @@ import { NavLink } from "react-router-dom";
 import { useGlobalContext } from "./context";
 
 const Movies = () => {
-  const {isLoading, movie } = useGlobalContext();
+  const {isLoading, movie,Spinner } = useGlobalContext();
 
   if (isLoading) {
     return (
       <>
-        <p className="text-center display-5">Loading.......</p>
+      <div className="container my-3 text-center">
+
+      <div className="spinner-grow" style={Spinner}role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      </div>
+        {/* <p className="text-center display-5">Loading.......</p> */}
       </>
     );
   }
@@ -31,7 +37,7 @@ const Movies = () => {
                           
                             </p>
                           <div className="card-img-top">
-                            <img src={Poster} className="card-img-top" />
+                            <img src={Poster} className="card-img-top" alt={imdbID} />
                             <div className="card-body">
                               <p className="text-center">{imdbID}</p>
                               <p className="text-center">{Year}</p>

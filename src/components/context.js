@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 // import reducer from "./reducer";
-
+export const Spinner = {width: "3rem", height: "3rem" };
+export const API = `http://www.omdbapi.com/?i=tt3896198&apikey=51814f21`;
 const AppContext = React.createContext();
 
-const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=51814f21';
 /*
 const initialState = {
     isLoading: true,
@@ -20,13 +20,14 @@ const AppProvider = ({children}) => {
 
 
     const [movie, setMovie] = useState([]);
-    const [query, setQuery] = useState("titanic");
+    const [query, setQuery] = useState("the dark knight");
     const [isError, setIsError] = useState({show: "false", msg: ""});
     const [isLoading, setIsLoading] = useState(true);
 
-    const getAllMovies = async () => {
+    const getAllMovies = async (url) => {
+        setIsLoading(true);
         try {
-            const res = await fetch(`${API}&s=${query}`);    
+            const res = await fetch(url);    
 
             const data = await res.json();        
             console.log(data);
@@ -34,7 +35,7 @@ const AppProvider = ({children}) => {
             if (data.Response === "True"){
                 setMovie(data.Search);
                 setIsLoading(false);
-                setIsError({ show: true, msg: data.error});
+                setIsError({ show: false, msg: ""});
 
 
                 /*
@@ -48,7 +49,7 @@ const AppProvider = ({children}) => {
 
 
             } else{
-                    setIsError({show: true, msg: data.error});
+                    setIsError({show: true, msg: data.Error});
             }
 
             /*
@@ -77,12 +78,20 @@ const AppProvider = ({children}) => {
 
 
     useEffect(() => {
-        getAllMovies();
+        // response api only once while search---
+
+        let timerFuction = setTimeout(() => {
+
+            getAllMovies(`${API}&s=${query}`);
+        }, 1500)
+
+        return () => clearTimeout(timerFuction);
+
     }, [query]);
 
     return (
         <>
-            <AppContext.Provider value={{ movie, query, setQuery, isError, isLoading }} >
+            <AppContext.Provider value={{ movie, query, setQuery, isError, isLoading, Spinner }} >
                 {children}
             </AppContext.Provider>
         </>
