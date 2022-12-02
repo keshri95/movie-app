@@ -50,7 +50,7 @@ const ClickedMovie = () => {
     }
 
     return (
-      <div className="container my-5" style={{maxWidth: "540px"}}>
+      <div className="container my-5 centered w-50">
         <div className="card ">
           <div className="row g-0 d-flex align-items-center">
             <div className="col-md-4">
