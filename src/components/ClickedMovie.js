@@ -40,12 +40,14 @@ const ClickedMovie = () => {
 
     if (isLoading) {
       return (
+        <>
         <div className="container my-3 text-center">
           {/* <p className="text-center display-5">Loading....</p> */}
           <div className="spinner-grow" style={Spinner} role="status">
             {/* <span aclassName="visually-hidden"></span> */}
           </div>
         </div>
+        </>
       );
     }
 

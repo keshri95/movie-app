@@ -14,19 +14,11 @@ const reducer = (state, action) => {
                 isLoading:false,
             }
 
-    /*
-    
-        case "SEARCH_MOVIE":
-        return {
-            ...state,
-            query: action.payload
-        }
-
-    */
+        default: 
+            return state;
 
     }
 
-    return state;
 };
 
 export default reducer;

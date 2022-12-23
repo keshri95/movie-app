@@ -13,7 +13,6 @@ const Movies = () => {
         <span className="visually-hidden">Loading...</span>
       </div>
       </div>
-        {/* <p className="text-center display-5">Loading.......</p> */}
       </>
     );
   }

@@ -5,20 +5,7 @@ export const Spinner = {width: "3rem", height: "3rem" };
 export const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 const AppContext = React.createContext();
 
-/*
-const initialState = {
-    isLoading: true,
-    hits: [],
-};
-
-*/
-
 const AppProvider = ({children}) => {
-
-
-// const [state, dispatch] = useReducer(reducer, initialState);
-
-
     const [movie, setMovie] = useState([]);
     const [query, setQuery] = useState("the dark knight");
     const [isError, setIsError] = useState({show: "false", msg: ""});
@@ -38,25 +25,10 @@ const AppProvider = ({children}) => {
                 setIsError({ show: false, msg: ""});
 
 
-                /*
-                dispatch({
-                    type: 'GET_ALL_MOVIES',
-                    payload: {
-                        hits: data.hits,
-                    }
-                })
-                */
-
-
             } else{
                     setIsError({show: true, msg: data.Error});
             }
 
-            /*
-            dispatch({
-                type: 'SET_LOADING',
-            });
-            */
         }  
 
         catch (error){
@@ -64,17 +36,6 @@ const AppProvider = ({children}) => {
         }
     }
 
-    /*
-    const searchMovie = (objetcID) => {
-        dispatch({
-            type: "SEARCH_MOVIE",
-            payload: {
-                objetcID
-            }
-        })
-    }
-
-    */
 
 
     useEffect(() => {
