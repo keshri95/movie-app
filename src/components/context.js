@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 // import reducer from "./reducer";
 export const Spinner = {width: "3rem", height: "3rem" };
-export const API = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
+export const API = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
 const AppContext = React.createContext();
 
